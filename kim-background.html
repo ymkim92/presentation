@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Kim - Presentation #1</title>
+
+		<meta name="description" content="...">
+		<meta name="author" content="Youngmin Kim">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>My Publications and Background</h1>
+					<h3>05 August, 2015</h3>
+					<p>
+						<small>By Youngmin Kim </small>
+					</p>
+				</section>
+
+                <section>
+                    <h2>Contents</h2>
+                    <ul>
+                        <li/>My Publications
+                        <li/>My Background
+                        <li/>Research in this PhD
+                    </ul>
+                </section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>My Publications</h2>
+						<em>The most of my publications are about Mobile Ad-Hoc Network (MANET)</em>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Papers in LNCS 
+                        - Internet Connectivity in MANET
+                            - Youngmin Kim, Sanghyun Ahn, Hyun Yu, Jaehwoon Lee and Yujin Lim, 
+                              "**Proactive Internet Gateway Discovery Mechanisms for Load-Balanced Internet Connectivity in MANET**", LNCS 5200, 2008.
+                            - Youngmin Kim, Sanghyun Ahn, Yujin Lim, Hyun Yu, Jaehwoon Lee and Jongwon Choe, 
+                              "**Load Balancing Mechanisms in the MANET with Multiple Internet Gateways**", LNCS 3961, 2006. 
+                        - Multicast Forwarding in MANET
+                            - Youngmin Kim, Sanghyun Ahn and Jaehwoon Lee, 
+                              "**An Efficient Multicast Data Forwarding Scheme for Mobile Ad Hoc Networks**", LNCS 3391, 2005. 
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Conference Papers 
+                        - Autonomous Vehicle
+                            - Youjun Choi, Daejun Kang, Sunjong Lee and Youngmin Kim, 
+                              “**The Autonomous Platoon Driving System of the On Line Electric Vehicle**”, 
+                              ICROS-SICE International Joint Conference 2009,  Aug. 2009. 
+                        - Address Autoconfiguration in MANET
+                            - Youngmin Kim, Sanghyn Ahn, Youngju Lee, Jaehoon Jeong and Jaehwoon Lee, 
+                              "**Design and Implementation of IPV6 Address Autoconfiguration for AODV in Mobile Ad Hoc Networks**", 
+                              UKC 2005, Aug. 2005. 
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Internet Connectivity in MANET
+
+                        - IGW advertisement: Limited forwarding
+                        - Proactive IGW discovery
+                        - NS2 simulation for performance analysis
+                        <br><img data-src="img/IGW.png" width=400 style="background-color:white;">
+                        - There is no standard until now
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Multicast Forwarding in MANET
+                        - It is different in MANET comparing with Wired Network
+                            - Packet duplication
+                                - from a non-neighbor
+                                - from a reverse transmission
+                        - Required memory analysis by a simple math
+                        <br><img data-src="img/MDF.png" width=500>
+                        - Simplified Multicast Forwarding, [RFC 6621](https://tools.ietf.org/html/rfc6621) (May 2012)
+                    </script>
+					</section>
+
+				</section>
+
+                <section>
+                    <section>
+                        <h2>My Background</h2>
+
+                        <ul>
+                            <li/>Wirelessly Charging Electric Vehicle 
+                            <li/>Drone
+                        </ul>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Wirelessly Charging Electric Vehicle
+
+                        - Worked at **KAIST** for 3 years starting this project 
+                        - Worked for 5 years for this project 
+                        - Main Role
+                            - Monitoring and control of EV and its power supplier 
+                            - Segment on/off control  
+                        - Networking: CAN/Serial communication, modbus RTU/TCP and USB 3G modem
+                        - Project name: [On-Line Electric Vehicle](http://olev.kaist.ac.kr/)
+                        - [Monitoring system example](http://143.248.176.158/admin/quick_view.php?citycode=1) in Gumi City in South Korea 
+
+                    </script>
+                    </section>
+
+                    <section>
+                    <iframe width="720" height="480" src="https://www.youtube.com/embed/wuDdCXvDQik" frameborder="1" allowfullscreen></iframe>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Drone
+                        - Working at a start-up company called [Skybornetech](http://www.skybornetech.com/) for 9 months
+                        - Main Role
+                            - PWM input and output handling with Arduino
+                            - Gathering sensing info and sending control info to a drone
+                        - Networking: serial communication and WLAN/IP/TCP|UDP
+                    </script>
+                    </section>
+
+                </section>
+
+				<section>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## Research in this PhD 
+                        - Network Security for Autonomous Vehicle 
+                            - Networks for Vehicle
+                                - Inside-vehicle network: CAN 
+                                - Physical and Link Layer: DSRC/WAVE(IEEE 802.11p)
+                                - Network Layer: Vehicular Ad Hoc Network (VANET)
+                            - What will be a killer application?
+                                - Possible scenarios and security threats
+                            - Problems to solve
+                                - How can a vehicle trust the other vehicles?
+                                - How can a vehicle detect the security problem in the network of vehicle?
+
+
+                    </script>
+                    </section>
+
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Recent news
+
+                        - An interesting [article](http://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/) about **Jeep hacking** in *Wired* (July 2015)
+                            - Chrysler has **issued a recall** for 1.4 million vehicles 
+                            - The company has also **blocked Sprint’s network** 
+                            - **=> Network security of vehicle is a real issue in these days**
+
+                    </script>
+                    </section>
+
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+                mouseWheel: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+            Reveal.configure({ slideNumber: 'c / t' });
+
+		</script>
+
+	</body>
+</html>
