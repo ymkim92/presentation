@@ -1,5 +1,7 @@
 http://ymkim92.github.io/presentation/kim-background.html
 
+To deploy reveal.js to github pages: http://www.tikalk.com/devops/deploy-revealjs-slideshow-github-pages/
+
 
 
 
