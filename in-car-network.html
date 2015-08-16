@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title> In-Car Network </title>
+
+		<meta name="description" content="...">
+		<meta name="author" content="Youngmin Kim">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>In-Car Networks</h1>
+					<h3>August, 2015</h3>
+					<p>
+						<small>By Youngmin Kim </small>
+					</p>
+				</section>
+
+                <section data-markdown>
+                <script type="text/template">
+                    ## Contents
+                    - My Publications
+                    - My Background
+                    - Research in this PhD
+                </script>
+                </section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+                    <section data-markdown>
+                    <script type="text/template">
+						## [autosec](http://www.autosec.org/) 
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Possible Attack
+                        - disabling the brakes
+                        - selectively braking individual wheels
+                        - stoping the engine
+
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### On-Board Diagnostics (OBD-II) port 
+                        - Provide direct and standard access to internal automotive networks
+                            - Auto company hardly open their communication protocol
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Telematics systems
+                        - GM's OnStar
+                        - Automatic crash response
+                        - Remote diagnostics
+                        - Stolen vehicle recovery over a long-range wireless link
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Short range wireless communication
+                        - Audio player/ Tire Pressure Monitoring System (TPMS)
+                            - access to internal automotive networks
+                            - Bluetooth or other wireless connection
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### ECU (Engine Control Unit => Electronic Control Unit) 
+                        - 50-70 independent ECUs in a car
+                        - ECS coupling: connected each other (in the network of CAN or FlexRay)
+                            - Electronic Stability Control (ESC)
+                            - Antilock Braking System (ABS)
+                            - Roll Stability Control (RSC)
+                            - Active Cruise Control (ACC)
+                            - Automated Parallel Parking
+                            - Lane Assist System
+
+                    </script>
+					</section>
+
+				</section>
+
+                <section>
+                    <section>
+                        <h2>Experiments</h2>
+
+                        <ul>
+                            <li/> OBD-II 
+                        </ul>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### OBD-II
+
+                        - ECOM cable
+
+
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Test-bed 
+                        - buy an ECU on Ebay
+                        - ECU github, ecu-tool
+                        - mutiple ECUs as well as sensors and actuators
+
+                        => real ECU => ECU + my own ECU based on ecu_tools => ECU + my own ECU + emulator
+                    </script>
+                    </section>
+
+                </section>
+
+				<section>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## Research in this PhD 
+                        - Network Security for Autonomous Vehicle 
+                            - Networks for Vehicle
+                                - Inside-vehicle network: CAN 
+                                - Physical and Link Layer: DSRC/WAVE(IEEE 802.11p)
+                                - Network Layer: Vehicular Ad Hoc Network (VANET)
+                            - What will be a killer application?
+                                - Possible scenarios and security threats
+                            - Problems to solve
+                                - How can a vehicle **trust** the other ones?
+                                - How can a vehicle **detect** the security problem in the network of vehicle?
+
+
+                    </script>
+                    </section>
+
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Recent news
+
+                        - An interesting [article](http://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/) 
+                          about **Jeep hacking** in *Wired* (July 2015)
+                            - Chrysler has **issued a recall** for 1.4 million vehicles 
+                            - The company has also **blocked Sprint’s network** 
+                            - **=> Network security of vehicle is a real issue in these days**
+
+                    </script>
+                    </section>
+
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: true,
+                mouseWheel: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+            Reveal.configure({ slideNumber: 'c / t' });
+
+		</script>
+
+	</body>
+</html>
