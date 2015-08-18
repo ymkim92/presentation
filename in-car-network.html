@@ -41,8 +41,8 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>In-Car Networks</h1>
-					<h3>August, 2015</h3>
+					<h1>Security for Modern Automobile </h1>
+					<h3>19 August, 2015</h3>
 					<p>
 						<small>By Youngmin Kim </small>
 					</p>
@@ -51,27 +51,77 @@
                 <section data-markdown>
                 <script type="text/template">
                     ## Contents
-                    - My Publications
-                    - My Background
-                    - Research in this PhD
+                    - autosec : Two famous papers
                 </script>
                 </section>
 
-				<!-- Example of nested vertical slides -->
 				<section>
                     <section data-markdown>
                     <script type="text/template">
-						## [autosec](http://www.autosec.org/) 
+                        ## [autosec](http://www.autosec.org/) 
+                        - Experimental Security Analysis of a Modern Automobile
+                            - Karl et al.
+                            - IEEE Symposium on Security and Privacy, Oakland, CA, May 16–19, 2010. 
+                        - Comprehensive Experimental Analyses of Automotive Attack Surfaces
+                            - Stephen et al.
+                            - USENIX Security, August 10–12, 2011.
+
+                        - => A Current Vehicle is very easy to compromise its ECUs (Engine, Brake, Audio..)  
+
                     </script>
 					</section>
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### Possible Attack
-                        - disabling the brakes
-                        - selectively braking individual wheels
-                        - stoping the engine
+                        ### Automotive Embedded Systems
+                        - **ECU**: Engine Control Units => Electric Control Units
+                        - Modern luxury sedans have 50-70 independent ECUs
 
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Controller Area Network (CAN) 1/2
+                        - The typical car contains multiple buses
+                            - A high-speed bus: may interconnect powertrain components
+                            - A low-speed bus: may control binary actuators like lights and doors
+                            - A **Bridged** ECU supports interaction between two buses 
+
+                        <img data-src="img/CAN.png" width=500>
+
+
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Controller Area Network (CAN) 2/2
+                        - In 2008, all cars sold in the U.S. are required to implement the CAN bus
+                            - => CAN became the **dominant** network for in-car networks
+                        - A CAN packet 
+                            - does **not** include **addresses** (source and destination)
+                            - instead support **publish-and-subscribe** communication model
+                                - The CAN ID header indicates the packet type
+                        - All major automotive manufacturers have a slightly different CAN framing => **CAN variant**
+                            - They do **not open** the specification
+
+
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### CAN Security Challenges
+                        - Broadcast Nature
+                            - easy to snoop
+                        - Fragility to DoS
+                        - No Authenticator Fields
+                            - Any single compromised component can be used to control all of the others on the bus
+                        - Weak Access Control
+                            - challenge-response sequence for some important tasks (seeds and keys)
+                                - Reflashing and memory protection
+                                - Tester capabilities
                     </script>
 					</section>
 
@@ -79,17 +129,16 @@
                     <script type="text/template">
                         ### On-Board Diagnostics (OBD-II) port 
                         - Provide direct and standard access to internal automotive networks
-                            - Auto company hardly open their communication protocol
                     </script>
 					</section>
 
+
                     <section data-markdown>
                     <script type="text/template">
-                        ### Telematics systems
-                        - GM's OnStar
-                        - Automatic crash response
-                        - Remote diagnostics
-                        - Stolen vehicle recovery over a long-range wireless link
+                        ### Attack Methodology
+                        - Packet Sniffing with OBD-II module
+                        - Iterative testing of random or partially random packets
+                        - Reverse Engineering (memory dump from ECU)
                     </script>
 					</section>
 
@@ -105,7 +154,6 @@
                     <section data-markdown>
                     <script type="text/template">
                         ### ECU (Engine Control Unit => Electronic Control Unit) 
-                        - 50-70 independent ECUs in a car
                         - ECS coupling: connected each other (in the network of CAN or FlexRay)
                             - Electronic Stability Control (ESC)
                             - Antilock Braking System (ABS)
@@ -130,16 +178,6 @@
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### OBD-II
-
-                        - ECOM cable
-
-
-                    </script>
-                    </section>
-
-                    <section data-markdown>
-                    <script type="text/template">
                         ### Test-bed 
                         - buy an ECU on Ebay
                         - ECU github, ecu-tool
@@ -154,37 +192,95 @@
 				<section>
                     <section data-markdown>
                     <script type="text/template">
-                        ## Research in this PhD 
-                        - Network Security for Autonomous Vehicle 
-                            - Networks for Vehicle
-                                - Inside-vehicle network: CAN 
-                                - Physical and Link Layer: DSRC/WAVE(IEEE 802.11p)
-                                - Network Layer: Vehicular Ad Hoc Network (VANET)
-                            - What will be a killer application?
-                                - Possible scenarios and security threats
-                            - Problems to solve
-                                - How can a vehicle **trust** the other ones?
-                                - How can a vehicle **detect** the security problem in the network of vehicle?
+                        ## AUTOSAR
+                        - An open and standardized automotive software architecture
+                        - AUTOSAR consortium
+                            - Established 2003 : Daimler, VW, Bosch...
+                            - Now has strong global support, mandated by many OEMS
+                        - Provides standardized interface for **ECU interface and architecture**
+                        - Improve reusability, reduce cost, offer wider market choice
+                        - 20~25% of cars adopted AUTOSAR as of 2012
+                            - But it is getting spread
+                    </script>
+                    </section>
+                </section>
 
-
+				<section>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## OS or Middleware for Car
+                        - [Android Auto](https://www.android.com/auto/)
+                        - [Apple CarPlay](http://www.apple.com/au/ios/carplay/)
                     </script>
                     </section>
 
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### Recent news
+                        ### [Android Auto](https://www.android.com/auto/)
+                        - A smartphone projection standard developed by Google 
+                        - The driver's Android device connects to the vehicle via USB cable
+                        - Navigation, Call, SMS, Music and so on
+                    </script>
+                    </section>
 
-                        - An interesting [article](http://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/) 
-                          about **Jeep hacking** in *Wired* (July 2015)
-                            - Chrysler has **issued a recall** for 1.4 million vehicles 
-                            - The company has also **blocked Sprint’s network** 
-                            - **=> Network security of vehicle is a real issue in these days**
+                    <section>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ht8yzpIV9M0" frameborder="0" allowfullscreen></iframe>
+                    </section>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Android Auto > Car hardware support
+
+                        With Android Auto, a driver's mobile device will have access to several of the automobile's **sensors and inputs**:
+
+                        Car hardware | Available to mobile device
+                        --- | ---
+                        Car data | Under development
+                        Compass | Yes 
+                        Directional microphones	        | Yes
+                        Directional speakers	            | Yes
+                        GPS and high-quality GPS antennas	| Yes
+                        Mobile antennas 	                | Yes
+                        Sound system 	                    | Yes
+                        **Steering-wheel controls** 	        | Yes
+                        Wheel speed 	                    | Yes
+
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Android Auto > Launch partners
+
+                        The following models are available with Android Auto:
+
+                        - Hyundai Sonata (May 2015)
+                        - Skoda Fabia (June 2015)
+                        - Skoda Superb (June 2015)
+                        - Skoda Octavia (June 2015)
+                        - Honda Accord (August 2015)
+                        - VW Golf/GTI (September 2015)
+                        - Chevrolet Cruze (2016)
+                        
 
                     </script>
                     </section>
 
 				</section>
+
+				<section>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## What makes car hacking easier
+                        - Connected / Autonomous Vehicle
+                        - Car Sharing
+                        - Software Defined Radio (SDR): USRP or HackRF
+
+                        Global market share of the world's largest automobile OEMs as of August 30, 2014 
+                        Global market share held by the leading smartphone vendors from 2012 to 2014 
+                    </script>
+                    </section>
+                </section>
 
 			</div>
 
