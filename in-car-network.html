@@ -41,7 +41,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Security for Modern Automobile </h1>
+					<h1>In-Vehicle Network Security for Modern Automobile </h1>
 					<h3>19 August, 2015</h3>
 					<p>
 						<small>By Youngmin Kim </small>
@@ -51,14 +51,18 @@
                 <section data-markdown>
                 <script type="text/template">
                     ## Contents
-                    - autosec : Two famous papers
+                    - autosec Project : Two famous papers
+                    - Test-bed
+                    - AUTOSAR
+                    - Middleware for Car
+                    - Further thinking
                 </script>
                 </section>
 
 				<section>
                     <section data-markdown>
                     <script type="text/template">
-                        ## [autosec](http://www.autosec.org/) 
+                        ## [autosec](http://www.autosec.org/) Project
                         - Experimental Security Analysis of a Modern Automobile
                             - Karl et al.
                             - IEEE Symposium on Security and Privacy, Oakland, CA, May 16–19, 2010. 
@@ -127,16 +131,38 @@
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### On-Board Diagnostics (OBD-II) port 
-                        - Provide direct and standard access to internal automotive networks
+                        ### Ways to access to the CAN network 
+                        - Physical or short range wireless access
+                            - OBD-II
+                            - Car Audio (CD/Bluetooth)
+                            - USB/Smartphone
+                            - RF-based Remote Key Entry 
+                            - Tire Pressure
+                            - RFID car keys
+                            - WiFi Hotspot through 3G data link
+                        - Long range wireless access
+                            - Radio, Digital radio
+                            - GPS Receiver
+                            - Cellular network
+
                     </script>
 					</section>
 
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### Attack Methodology
-                        - Packet Sniffing with OBD-II module
+                        ### On-Board Diagnostics (OBD-II) port 
+                        - Provide direct and standard access to internal automotive networks
+
+                        <img data-src="img/obd-ii-cable.jpg" width=500>
+                    </script>
+					</section>
+
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Attack Methodology for CAN Network
+                        - Packet Sniffing 
                         - Iterative testing of random or partially random packets
                         - Reverse Engineering (memory dump from ECU)
                     </script>
@@ -144,63 +170,77 @@
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### Short range wireless communication
-                        - Audio player/ Tire Pressure Monitoring System (TPMS)
-                            - access to internal automotive networks
-                            - Bluetooth or other wireless connection
+                        ### Attack Methodology for Indirect Intrusion 
+                        - CD based-firmware update
+                        - WiFi or wired shell injection
+                        - Buffer overflow with paired Android phone
+                        - Authentication exploit, buffer overflow on cellular network
+
+                        - => ECUs have the great deficiencies
+                        - => They did not even meet the standard or specification
                     </script>
 					</section>
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### ECU (Engine Control Unit => Electronic Control Unit) 
-                        - ECS coupling: connected each other (in the network of CAN or FlexRay)
-                            - Electronic Stability Control (ESC)
-                            - Antilock Braking System (ABS)
-                            - Roll Stability Control (RSC)
-                            - Active Cruise Control (ACC)
-                            - Automated Parallel Parking
-                            - Lane Assist System
-
+                        ### Potential Security Solution for inside CAN
+                        - Strong protections of diagnostic and reflashing services
+                            - Strong access control
+                        - Aftermarket component
+                            - Car Audio
+                            - need **filtering** device between **untrusted component** and the CAN
+                        - Detection and correction of anomalies
                     </script>
 					</section>
 
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### near-term recommendation for outside CAN
+                        - Restrict access 
+                        - improve code robustness
+                    </script>
+					</section>
 				</section>
 
                 <section>
-                    <section>
-                        <h2>Experiments</h2>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## Test-bed 
+                        - buy an ECU on Ebay
+                        - ECU in github, ecu-tool
+                        - mutiple ECUs as well as sensors and actuators
 
-                        <ul>
-                            <li/> OBD-II 
-                        </ul>
+                        - => real ECU => ECU + my own ECU based on ecu_tools => ECU + my own ECU + emulator
+                        - I need more study
+                    </script>
                     </section>
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### Test-bed 
-                        - buy an ECU on Ebay
-                        - ECU github, ecu-tool
-                        - mutiple ECUs as well as sensors and actuators
-
-                        => real ECU => ECU + my own ECU based on ecu_tools => ECU + my own ECU + emulator
+                        ## Test-bed > Car Hacking for Poories 
+                        - Charlie Miller, Security Engineer, Twitter 
+                        - Chris Valasek, Director of Security Intelligence, IOActive
+                        - Technical Reports
+                            - http://illmatics.com/car_hacking_poories.pdf
+                            - http://blog.ioactive.com/2013/08/car-hacking-content.html
                     </script>
                     </section>
-
                 </section>
 
 				<section>
                     <section data-markdown>
                     <script type="text/template">
                         ## AUTOSAR
-                        - An open and standardized automotive software architecture
+                        - An open and standardized automotive software architecture for ECUs
                         - AUTOSAR consortium
                             - Established 2003 : Daimler, VW, Bosch...
                             - Now has strong global support, mandated by many OEMS
                         - Provides standardized interface for **ECU interface and architecture**
                         - Improve reusability, reduce cost, offer wider market choice
                         - 20~25% of cars adopted AUTOSAR as of 2012
-                            - But it is getting spread
+                            - But **they say** it is getting spread
+                        - => This can be a global standard?
+                            - I need more study: [Message authentication for CAN bus and AUTOSAR software architecture](https://rtime.felk.cvut.cz/~sojka/students/Dp_2015_kulaty_ondrej.pdf) - Master’s Thesis 2015 
                     </script>
                     </section>
                 </section>
@@ -208,7 +248,7 @@
 				<section>
                     <section data-markdown>
                     <script type="text/template">
-                        ## OS or Middleware for Car
+                        ## Middleware for Car
                         - [Android Auto](https://www.android.com/auto/)
                         - [Apple CarPlay](http://www.apple.com/au/ios/carplay/)
                     </script>
@@ -231,7 +271,7 @@
                     <script type="text/template">
                         ### Android Auto > Car hardware support
 
-                        With Android Auto, a driver's mobile device will have access to several of the automobile's **sensors and inputs**:
+                        With Android Auto, a driver's mobile device will have access to several of the automobile's **sensors and inputs** [wikipedia]:
 
                         Car hardware | Available to mobile device
                         --- | ---
@@ -271,13 +311,25 @@
 				<section>
                     <section data-markdown>
                     <script type="text/template">
-                        ## What makes car hacking easier
-                        - Connected / Autonomous Vehicle
-                        - Car Sharing
-                        - Software Defined Radio (SDR): USRP or HackRF
+                        ## Further Thinking (1/2)
+                        - What makes car hacking easier
+                            - unsecure CAN
+                            - Connected / Autonomous Vehicle
+                            - Car Sharing
+                            - Software Defined Radio (SDR): USRP or HackRF
+                    </script>
+                    </section>
 
-                        Global market share of the world's largest automobile OEMs as of August 30, 2014 
-                        Global market share held by the leading smartphone vendors from 2012 to 2014 
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## Further Thinking (2/2)
+                        - Smartphone Market
+                            - Nokia was the number one and led its Symbian project to change normal phone to smart phone
+                            - Apple and Google were not the phone makers but, now they are the number one.
+                        - Car Market
+                            - Europe led its AUTOSAR project to make smart car
+                            - Who will be the winner in the future smart car market?
+
                     </script>
                     </section>
                 </section>
