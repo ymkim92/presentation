@@ -347,10 +347,15 @@
 				progress: true,
 				history: true,
 				center: true,
-                slideNumber: true,
-                mouseWheel: true,
+                		slideNumber: true,
+                		mouseWheel: true,
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				
+				math: {
+        				mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+        				config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+    				},
 
 				// Optional reveal.js plugins
 				dependencies: [
@@ -359,6 +364,7 @@
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/math/math.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
