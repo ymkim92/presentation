@@ -76,7 +76,7 @@
                             - **backward compatible** (because of its massive adaptation)
                             - **lightweight** 
                                 - Real-time transmission
-                                - Limited resources (11 bits CAN ID, Up to 8 bytes message length) 
+                                - Limited message size (11 bits CAN ID, Up to 8 bytes message length) 
                     </script>
 					</section>
 
@@ -209,15 +209,29 @@ laptop or PC |	capture traffic from CAN bus
                     <script type="text/template">
                         ## My Research will focus on.. 
                         - Secure CAN
-                            - Secure Algorithm 
-                                - Do you think Message Authentication is the most important?
-                                - Is there any other?
+                            - Secure Algorithm (Message Authentication and more?)
                             - Attack Detection
                             - Test-bed for verification
 
-                        <img data-src="img/Attack-point.png" width=350>
+                        <img data-src="img/Attack-point.png" width=400>
                     </script>
                     </section>
+                    
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### CAN Security Challenges from [autosec](http://www.autosec.org/) Project
+                        - Broadcast Nature
+                            - easy to snoop
+                        - Fragility to DoS
+                        - No Authenticator Fields
+                            - Any single compromised component can be used to control all of the others on the bus
+                        - Weak Access Control
+                            - challenge-response sequence for some important tasks (seeds and keys)
+                                - Reflashing and memory protection
+                                - Tester capabilities
+                    </script>
+					</section>
+
 
                 </section>
 
