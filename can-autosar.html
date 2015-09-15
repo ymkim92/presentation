@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title> CAN - AUTOSAR </title>
+
+		<meta name="description" content="...">
+		<meta name="author" content="Youngmin Kim">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>CAN Security Extensions and Integration with AUTOSAR </h1>
+					<h3>2 September, 2015</h3>
+					<p>
+						<small>By Youngmin Kim </small>
+					</p>
+				</section>
+
+                <section data-markdown>
+                <script type="text/template">
+                    ## Contents
+                    - Security Extensions of CAN Bus
+                    - AUTOSAR
+                    - Test-bed
+                    - My Research
+                </script>
+                </section>
+
+				<section>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## Security Extensions of CAN Bus 
+                        - [CANAuth](https://www.cosic.esat.kuleuven.be/publications/article-2086.pdf) (2011)
+                        - MaCAN (2012)
+                            - Invented by Volkswagen
+
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Requirements
+                        - Security extensions should be
+                            - **backward compatible** (because of its massive adaptation)
+                            - **lightweight** 
+                                - Real-time transmission
+                                - Limited message size (11 bits CAN ID, Up to 8 bytes message length) 
+                    </script>
+					</section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Message Authentication 
+                        - Message Authentication is a main topic in both **CANAuth** and **MaCAN**
+                            - provide a way against replay attack 
+                            <br><br>
+
+.    | CANAuth | MaCAN
+--- | --- | ----
+Base Protocol | CAN+  using out of band channel | Standard CAN
+MAC | HMAC | CMAC 
+
+
+                    </script>
+					</section>
+
+				</section>
+
+				<section>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## AUTOSAR
+                        - [Specifications](http://www.autosar.org/specifications/)
+                            - [Whole list of documents](http://www.autosar.org/fileadmin/files/releases/4-2/AUTOSAR_TR_ReleaseOverviewAndRevHistory.pdf) page 14
+                        - Integration with Custom CAN
+                            - [Message authentication for CAN bus and AUTOSAR software architecture](https://rtime.felk.cvut.cz/~sojka/students/Dp_2015_kulaty_ondrej.pdf) - Master’s Thesis 2015 
+
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### AUTOSAR Architecture
+                        <img data-src="img/autosar/autosar-architecture.png" width=800>
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Port (AUTOSAR Interface)
+                        - Each component communicates with other components via **AUTOSAR interface** called port.
+                        - All communication between ports is handled by a Virtual Function Bus (**VFB**)
+                            - VFB virtually connects ports of SWCs **depending on the configuration**
+                            - These virtual connections between Software Components are mapped locally or through a **network communication like CAN** or FlexRay
+
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### VFB
+                        <img data-src="img/autosar/autosar-VFB.png" width=800>
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### AUTOSAR CAN Communication Stack 
+                        <img data-src="img/autosar/autosar-comstack.png" width=500>
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Integration of custom CAN with AUTOSAR (1/2) 
+                        - [ARCCORE](https://www.arccore.com/) : Open source AUTOSAR solutions
+                        - As a module in Basic Software
+
+                        <img data-src="img/autosar/autosar-integration-with-CAN.png" width=500>
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Integration of custom CAN with AUTOSAR (2/2) 
+                        - Testing Environment
+
+                        <img data-src="img/autosar/autosar-integration-test.png" width=500>
+                    </script>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## Test-bed 
+
+Item       |         Description
+----------- | -------------------
+ECUs	|
+Car Audio |	
+OBD-II module/cable |	capture traffic from CAN bus
+CAN bus cable (wire)	|
+120 ohm resistors |	
+breadboard	|
+12V power supply	|
+laptop or PC |	capture traffic from CAN bus
+
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## Test-bed 
+                        - I am short of knowledge for hardware setting of CAN Bus
+                            - Is there anybody to help me for this?
+                            <br><br>
+                        - Phase 1: gathering CAN data from a real car
+                            - OBD-II module/cable
+                        - Phase 2: setting a CAN bus with only one commercial ECU
+                            - Car Audio, wire, resistors, breadboard, power supply
+                        - Phase 3: adding more commercial ECUs
+                            - ECUs
+                        - Phase 4: making my own ECU with an embedded board
+                            - Embedded board
+                            <br><br>
+                        - Can I buy items in step-by-step?
+
+        
+                    </script>
+                    </section>
+                </section>
+
+				<section>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## My Research will focus on.. 
+                        - Secure CAN
+                            - Secure Algorithm (Message Authentication and more?)
+                            - Attack Detection
+                         	- http://www.wired.com/2014/07/car-hacker/
+                            - Test-bed for verification
+
+                        <img data-src="img/Attack-point.png" width=400>
+                    </script>
+                    </section>
+                    
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### CAN Security Challenges from [autosec](http://www.autosec.org/) Project
+                        - Broadcast Nature
+                            - easy to snoop
+                        - Fragility to DoS
+                        - No Authenticator Fields
+                            - Any single compromised component can be used to control all of the others on the bus
+                        - Weak Access Control
+                            - challenge-response sequence for some important tasks (seeds and keys)
+                                - Reflashing and memory protection
+                                - Tester capabilities
+                    </script>
+					</section>
+
+
+                </section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                		slideNumber: true,
+                		mouseWheel: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				
+				math: {
+        				mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+        				config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+    				},
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/math/math.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+            Reveal.configure({ slideNumber: 'c / t' });
+
+		</script>
+
+	</body>
+</html>
