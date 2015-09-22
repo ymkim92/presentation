@@ -137,6 +137,8 @@ I am the first or sole author of at least one published (must be published by no
                             - Focus on message authentication
                             - Prevent the replay attack with time server or counter
                         - ==> **What approaches makes the CAN bus secure meeting the time constraints?**
+                            - Advanced message authentication?
+                            - Different approaches?
 
                     </script>
                     </section>
@@ -148,10 +150,10 @@ I am the first or sole author of at least one published (must be published by no
                     <script type="text/template">
                         ## Objectives, Methodology and Research Plan (1/3)
                         - Objectives
-                            - to provide secure in-vehicle network for connected smart car 
+                            - to provide secure in-vehicle network for **connected smart car**
                         - Key Variables
-                            - CAN Bus, In-Vehicle Network, Secure Communication, **Connected Car** (different point?)
-                            - Message Authentication, Replay Attack, Access Control, Trusted Platform Module 
+                            - CAN Bus, In-Vehicle Network, Secure Communication, ECU, **Connected Car** (different point? V2X connection??)
+                            - Message Authentication, Replay Attack, Access Control, Attack Detection System, Trusted Platform Module
                     </script>
                     </section>
 
@@ -191,8 +193,6 @@ I am the first or sole author of at least one published (must be published by no
                         ## Another Secure CAN paper
                         - Title: [Cyber-Security for the Controller Area Network (CAN) Communication Protocol](https://www.google.com.au/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0CD4QFjACahUKEwj-wNbWlfjHAhUGIKYKHV9dAY4&url=http%3A%2F%2Fojs.scienceengineering.org%2Findex.php%2Fscience%2Farticle%2Fdownload%2F49%2Fpdf&usg=AFQjCNF8XV77zp2C4rE4YDQrV2IaqvfrJw&sig2=GEukKJ9xeqzDnsNy-g3LvQ&cad=rjt)
                         - Focus on message authentication and the way to protect the replay attack
-                        - Finite state machine of ECU nodes for counter reset 
-                        - Not origanized well
                     </script>
                     </section>
 
@@ -216,9 +216,10 @@ I am the first or sole author of at least one published (must be published by no
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### Finite State Machine for counter reset
-                        - network-wide reset mechanism
+                        ### Counter Reset
+                        - network-wide reset mechanism (distributed vs. centralized)
                         <img data-src="img/04/finite_state_machine.png" width=700>
+                        - self-healing by prediction
 
 
                     </script>
