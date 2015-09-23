@@ -72,9 +72,8 @@
                     <script type="text/template">
                         ### Potential benefits
                         - Greater fuel economy due to reduced air resistance.
+                        - On longer highway trips, vehicles could be **mostly unattended** whilst in following mode.
                         - Reduced congestion
-                        - Substantially shorter commutes during peak periods.
-                        - On longer highway trips, vehicles could be mostly unattended whilst in following mode.
                         - Fewer traffic collisions
 
                     </script>
@@ -94,7 +93,6 @@
                         - only longitute control in platoon
                         - **String stability**
 
-
                         <iframe width="640" height="480" src="https://www.youtube.com/embed/aNYh4MjeSpU" frameborder="0" allowfullscreen></iframe>
                     </script>
                     </section>
@@ -102,9 +100,9 @@
                     <section data-markdown>
                     <script type="text/template">
                         ### Type of Platoon 
-Type | Description 
+. | Type 
 --- | ---
-Vehicle type | Homogenous or Heterogenous or Both
+Vehicle type | Homogenous or Heterogenous
 Control | Longitude or "Longtitude and Lateral"
 Infrastructure | Required or Not
 
@@ -120,7 +118,7 @@ Infrastructure | Required or Not
                             - Authenticated Encryption of Both Vehicular Network
                                 - Authenticated Encryption (X?) for CAN Bus
                                     - Monitoring should be possible (OBD-II)
-                            - TPM
+                            - Trusted Platform Module
 
                         <img data-src="img/05/platoon_networks.png" width=600>
                     </script>
@@ -144,8 +142,8 @@ Infrastructure | Required or Not
                             - vehicular network security integration for vehicle platoon
                             - attack or anomaly detection
                         - Key Variables
-                            - CAN Bus, In-Vehicle Network, Secure Communication 
-                            - Vehicle-to-Vehicle Network, Vehicle Platoon, Message Authentication
+                            - CAN Bus, In-Vehicle Network, Vehicle-to-Vehicle Network, Vehicle Platoon
+                            - Secure Communication, Message Authentication, Authenticated Encryption
                             - Integration of Security of in-vehicle network and V2V network
                             - Time Constraints
                             - Replay Attack, Access Control, Trusted Platform Module 
@@ -155,15 +153,13 @@ Infrastructure | Required or Not
                     <section data-markdown>
                     <script type="text/template">
                         ### Methodology
-                        - Secure CAN protocol design
+                        - Secure networking system design for vehicle platoon
                         - Verification 
-                            - Calculate the expected **latency** in the system
-                            - Finite State Machine
-                            - Experimental method with Test-bed 
-                                - Data gathering from real cars 
-                                    - in order to compare the time performance with secured network 
+                            - Calculate the expected **upper-bound latency** in the system
+                            - Finite State Machine ??
+                            - Simulation for V2V network
+                            - Experimental method with CAN Bus Test-bed 
                                 - Implementation of security algorithm on test-bed
-                                - Simulation
 
                     </script>
                     </section>
@@ -177,7 +173,7 @@ Infrastructure | Required or Not
                         ## TO DO LIST 
                         - Trusted Platform Module 
                         - Secure CAN Survey and **Comparison**: CANAuth, MaCAN... 
-                        - Entity Authentication
+                        - [Entity Authentication](http://web2.utc.edu/~Li-Yang/cpsc4600/08_Entity-Authentication14.ppt)
                         - **Stage 2 proposal submission**
                             - ETHICAL CLEARANCE, INTELLECTUAL PROPERTY (IP), HEALTH AND SAFETY and so on
                         - Item selection for test-bed (After stage 2 submission)
