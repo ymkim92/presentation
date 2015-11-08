@@ -9,7 +9,7 @@ ADD_LATEX_DOCUMENT(
     pres.tex
 #    INPUTS ${contents_files}
     IMAGE_DIRS img 
-    BIBFILES pres.bib
+#    BIBFILES pres.bib
 #    USE_INDEX
 #    USE_GLOSSARY
 #    FILTER_OUTPUT
