@@ -41,7 +41,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h2> Petri Nets and Industrial Applications: A Tutorial </h2>
+                    <h2> <a href="img/06/00334574.pdf">Petri Nets and Industrial Applications: A Tutorial </a> </h2>
 					<h3>28 Octorber, 2015</h3>
 					<p>
 						<small>By Youngmin Kim </small>
@@ -56,7 +56,6 @@
                     - Properties of Petri Nets
                     - Analysis Methods 
                     - Performance Analysis
-                    - Petri Nets: Applications Prospects
                     - Next Meeting
                 </script>
                 </section>
@@ -69,8 +68,8 @@
                         Petri Net:
                         - graphical and mathematical tools for
                             - modelling
-                            - analysis
-                            - design of discrete system
+                            - requirements analysis
+                            - performance analysis
 
 
                     </script>
@@ -91,7 +90,6 @@
                     <script type="text/template">
                         ### Form of Requirements Specification
                         - textual description
-                        - mathematical notations
                         - **graphical representation using Petri nets**
 
                     </script>
@@ -145,6 +143,8 @@
                     <script type="text/template">
                         ### Definition of Petri Nets
                         <img data-src="img/06/pnmodel.png" width=700>
+                        
+                        - in Fig. 2
                     </script>
                     </section>
 
@@ -154,14 +154,6 @@
                         - Enabling Rule
                         - Firing Rule
                         - in Fig. 3
-                    </script>
-                    </section>
-
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### Inhibitor arc 
-                        - Zero testing ability
-                        - in Fig. 4
                     </script>
                     </section>
 
@@ -236,8 +228,8 @@
                             - L1-live: potentially firable, if t can be fired at least once
                             - L2-live: if t can be fired at least k times
                             - L3-live:
-                            - L4-live:
-                            ???
+                            - L4-live: live
+                            
                         - in Fig. 11
                     </script>
                     </section>
@@ -274,13 +266,39 @@
                         - The reachability set becomes unbounded by two reasons
                             - duplicated markings (loop)
                             - a net is unbounded 
+                            - in Fig. 12, 13
                     </script>
                     </section>
 
                     <section data-markdown>
                     <script type="text/template">
                         ### The Incidence Matrix and State Equation
-                        - 
+                        - Incidence matrix
+                            - defines all possible interconnections between places and transitions
+                                - in Fig. 15
+                        - State equation
+                            - represents a change in the marking
+                        - T-invariant
+                            - firing counts of the corresponding transistions
+                        - P-invariant
+                            - the weighted sum of tokens on these places is constant for all possible markings
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### An Example
+                        - Analysis of Petri net in Fig. 6 (assume b=1)
+                        - Boundedness and safeness
+                            - bounded: no marking contains *w* symbol
+                            - 1-bounded ==> safe
+                        - Conservativeness
+                            - w = [1, 1, 2, 1, 1, 2, 1, 1, 1] ==> conservative
+                            - invariant supports (y): p3, p6 show in two supports
+                        - Liveness
+                            - all transitions are live (in Fig. 16)
+                        - Reversibility
+                            - M0 is reachable from any marking M
                     </script>
                     </section>
 
@@ -290,21 +308,40 @@
                     <section data-markdown>
                     <script type="text/template">
                         ## Performance Analysis
-                        - [ESCAR](https://www.escar.info/): Conference for **E**mbedded **S**ecurity in **CAR**s
+                        - Two types of time Petri nets
+                            - deterministic timed Petri nets
+                            - stochastic timed Petri nets
+
                     </script>
                     </section>
 
-                </section>
-
-                <section>
                     <section data-markdown>
                     <script type="text/template">
-                        ## Petri Nets: Applications Prospects
-                        - [ESCAR](https://www.escar.info/): Conference for **E**mbedded **S**ecurity in **CAR**s
+                        ### Deterministic Timed Petri Nets
+                        - If a net contains a conflict, it becomes stochastic
+                        - A marked graph (conflict-free nets) ==> simple Petri nets
+                        - A timed marked graph
+                            - deterministic time delay is associated with places and transitions
+                        - in Fig. 17 and 18 (Table II and III)
+
+
+                    </script>
+                    </section>
+
+                    <section data-markdown>
+                    <script type="text/template">
+                        ### Stochastic Timed Petri Nets
+                        - Time delays are modelled as random variables or probabilistic distiributions
+                            - For more complex distribution, simulation or approximation methods are required
+                        - It is a convention to associate with transitions only
+                        - can be converted into the equivalent Markov process
+                        - in Fig. 19, Table IV ??
+
                     </script>
                     </section>
 
                 </section>
+
 
                 <section>
                     <section data-markdown>
