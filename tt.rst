@@ -6,11 +6,17 @@ AUTOSAR
 - CSM: Cryto Sevice Manager
 - CRY: Cryto Library Module
 
+---
+
 - SHE: Secure Hardware Extension (Europe leads)
+
+--- 
 
 - SecOC: Secured OnBoard Communication
 - PDUR: PDUs are routed through SecOC
 - PDU: Packet Data Unit
+
+---
 
 - SWC: Software component component
 - RTE: Run time environment
