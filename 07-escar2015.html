@@ -41,7 +41,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1> ESCAR 2015 USA </h1>
+					<h1> ESCAR 2015 USA and Test-bed</h1>
 					<h3>11 November, 2015</h3>
 					<p>
 						<small>By Youngmin Kim </small>
@@ -51,289 +51,117 @@
                 <section data-markdown>
                 <script type="text/template">
                     ## Contents
-                    - autosec Project : Two famous papers
+                    - ESCAR
                     - Test-bed
-                    - AUTOSAR
-                    - Middleware for Car
-                    - Further thinking
+                    - Next Goals
+                    - Next Meeting
                 </script>
                 </section>
 
 				<section>
                     <section data-markdown>
                     <script type="text/template">
-                        ## Introduction
-                        - What is ESCAR?
+                        ## ESCAR
+                        - What is [ESCAR](https://www.escar.info/)?
                             - Embedded Security in CARs
                             - The leading automotive Cyber Security conference
                         - Free download service for Lectures
+                        - The number of attandees
 
+                        <img data-src="img/07/participants.png" width=600>
                     </script>
 					</section>
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### Automotive Embedded Systems
-                        - **ECU**: Engine Control Units => Electric Control Units
-                        - Modern luxury sedans have 50-70 independent ECUs
+                        ### ESCAR 2015 USA Lectures (1/2)
+                        - In-vehicle network
+                            - [AUTOSAR Security Modules - VECTOR](img/07/autosar.pdf)
+                            - [Remote Control Automobiles - Digital Bond Labs](img/07/beagle.pdf)
+                            - Secure Gateway: A Concept for an In-Vehicle IP Network Bridging the Infotainment and the Safety-Critical Domains - semcon
 
+                        - Cost and management
+                            - CYBERSECURITY FOR GOVERNMENT VEHICLES - Homeland Security
+                            - A Security Engineering Process for Automotive Embedded Systems - Bosch
                     </script>
 					</section>
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### Controller Area Network (CAN) 1/2
-                        - The typical car contains multiple buses
-                            - A high-speed bus: may interconnect powertrain components
-                            - A low-speed bus: may control binary actuators like lights and doors
-                            - A **Bridged** ECU supports interaction between two buses 
+                        ### ESCAR 2015 USA Lectures (2/2)
+                        - Frameworks
+                            - A Tale of Two Frameworks - NIST
+                            - Five-Star Automotive Cyber Safety Framework 
 
-                        <img data-src="img/CAN.png" width=500>
+                        - Software Security
+                            - Securing the Automobile: a Comprehensive Approach - galois
 
-
+                        - Security Monitoring
+                            - Physical System Security: DoD-Sponsored UAV Prototype Use Case & Potential Applications to Automobiles - University of Virginia
                     </script>
 					</section>
 
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### Controller Area Network (CAN) 2/2
-                        - In 2008, all cars sold in the U.S. are required to implement the CAN bus
-                            - => CAN became the **dominant** network for in-car networks
-                        - A CAN packet 
-                            - does **not** include **addresses** (source and destination)
-                            - instead support **publish-and-subscribe** communication model
-                                - The CAN ID header indicates the packet type
-                        - All major automotive manufacturers have a slightly **different CAN framing** => CAN variant
-                            - They do **not open** the specification
+                </section>
 
-
-                    </script>
-					</section>
-
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### CAN Security Challenges
-                        - Broadcast Nature
-                            - easy to snoop
-                        - Fragility to DoS
-                        - No Authenticator Fields
-                            - Any single compromised component can be used to control all of the others on the bus
-                        - Weak Access Control
-                            - challenge-response sequence for some important tasks (seeds and keys)
-                                - Reflashing and memory protection
-                                - Tester capabilities
-                    </script>
-					</section>
-
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### Ways to access to the CAN network 
-                        - Physical or short range wireless access
-                            - OBD-II
-                            - Car Audio (CD/Bluetooth)
-                            - USB/Smartphone
-                            - RF-based Remote Key Entry 
-                            - Tire Pressure
-                            - RFID car keys
-                            - WiFi Hotspot through 3G data link
-                        - Long range wireless access
-                            - Radio, Digital radio
-                            - GPS Receiver
-                            - Cellular network
-
-                    </script>
-					</section>
-
-
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### On-Board Diagnostics (OBD-II) port 
-                        - Provide direct and standard access to internal automotive networks
-
-                        <img data-src="img/obd-ii-cable.jpg" width=500>
-                    </script>
-					</section>
-
-
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### Attack Methodology for CAN Network
-                        - Packet Sniffing 
-                        - Iterative testing of random or partially random packets
-                        - Reverse Engineering (memory dump from ECU)
-                        <br><br>
-                        - => They did not even meet the standard or specification
-                    </script>
-					</section>
-
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### Attack Methodology for Indirect Intrusion 
-                        - CD based-firmware update
-                        - WiFi or wired shell injection
-                        - Buffer overflow with paired Android phone
-                        - Authentication exploit, buffer overflow on cellular network
-                        <br><br>
-                        - => ECUs have the great deficiencies
-                    </script>
-					</section>
-
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### Potential Security Solution for inside CAN
-                        - Strong protections of diagnostic and reflashing services
-                            - Strong access control
-                        - Aftermarket component
-                            - Car Audio
-                            - need **filtering** device between **untrusted component** and the CAN
-                        - Detection and correction of anomalies
-                    </script>
-					</section>
-
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### near-term recommendation for outside CAN
-                        - Restrict access 
-                        - improve code robustness
-                    </script>
-					</section>
-				</section>
-
-                <section>
+				<section>
                     <section data-markdown>
                     <script type="text/template">
                         ## Test-bed 
-                        - buy an ECU on Ebay
-                        - ECU in github, ecu-tool
-                        <br><br>
-                        - => real ECU => ECU + my own ECU based on ecu_tools => ECU + my own ECU + emulator
-                        - I need more study
+                        - Beaglebone Black (AU $83.87)
+                        - Breadboard, wires and USB/Serial cables
+                        ---
+                        - CANUSB (AU $162.18)
+                        - OBD-II connector (AU $7.12)
                     </script>
                     </section>
 
                     <section data-markdown>
                     <script type="text/template">
-                        ## Test-bed > Car Hacking for Poories 
-                        - Charlie Miller, Security Engineer, Twitter 
-                        - Chris Valasek, Director of Security Intelligence, IOActive
-                        - Technical Reports
-                            - http://illmatics.com/car_hacking_poories.pdf
-                            - http://blog.ioactive.com/2013/08/car-hacking-content.html
-                    </script>
-                    </section>
-                </section>
+                        ### Beaglebone Black (AU $83.87)
+                        - 1GHz ARM TI AM3358 Cortex-A8 Development Board (Rev C, 4GB eMMC)
+                        - 2x CAN bus
 
-				<section>
-                    <section data-markdown>
-                    <script type="text/template">
-                        ## AUTOSAR
-                        - An open and standardized automotive software architecture for ECUs
-                        - AUTOSAR consortium
-                            - Established 2003 : Daimler, VW, Bosch...
-                            - Now has strong global support, mandated by many OEMS
-                        - Provides standardized interface for **ECU interface and architecture**
-                        - Improve reusability, reduce cost, offer wider market choice
-                        - 20~25% of cars adopted AUTOSAR as of 2012
-                            - But **they say** it is getting spread
-                        - => This can be a global standard?
-                            - I need more study: [Message authentication for CAN bus and AUTOSAR software architecture](https://rtime.felk.cvut.cz/~sojka/students/Dp_2015_kulaty_ondrej.pdf) - Master’s Thesis 2015 
-                    </script>
-                    </section>
-                </section>
-
-				<section>
-                    <section data-markdown>
-                    <script type="text/template">
-                        ## Middleware for Car
-                        - [Android Auto](https://www.android.com/auto/)
-                        - [Apple CarPlay](http://www.apple.com/au/ios/carplay/)
-                    </script>
-                    </section>
-
-
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### [Android Auto](https://www.android.com/auto/)
-                        - A smartphone **projection** standard developed by Google 
-                        - The driver's Android device connects to the vehicle via USB cable
-                        - Navigation, Call, SMS, Music and so on
-                    </script>
-                    </section>
-
-                    <section>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ht8yzpIV9M0" frameborder="0" allowfullscreen></iframe>
-                    </section>
-                    <section data-markdown>
-                    <script type="text/template">
-                        ### Android Auto > Car hardware support
-
-                        With Android Auto, a driver's mobile device will have access to several of the automobile's **sensors and inputs** [wikipedia]:
-
-                        Car hardware | Available to mobile device
-                        --- | ---
-                        Car data | Under development
-                        Compass | Yes 
-                        Directional microphones | Yes
-                        Directional speakers | Yes
-                        GPS and high-quality GPS antennas | Yes
-                        Mobile antennas | Yes
-                        Sound system 	                    | Yes
-                        **Steering-wheel controls** 	        | Yes
-                        Wheel speed 	                    | Yes
+                        <img data-src="img/07/beaglebone_black.jpg" width=500>
 
                     </script>
                     </section>
 
                     <section data-markdown>
                     <script type="text/template">
-                        ### Android Auto > Launch partners
-
-                        The following models are available with Android Auto:
-
-                        - Hyundai Sonata (May 2015)
-                        - Skoda Fabia (June 2015)
-                        - Skoda Superb (June 2015)
-                        - Skoda Octavia (June 2015)
-                        - Honda Accord (August 2015)
-                        - VW Golf/GTI (September 2015)
-                        - Chevrolet Cruze (2016)
+                        ### CANUSB (AU $162.18)
                         
-
-                    </script>
-                    </section>
-
-				</section>
-
-				<section>
-                    <section data-markdown>
-                    <script type="text/template">
-                        ## Further Thinking (1/2)
-                        - What makes car hacking easier
-                            - unsecure CAN
-                            - Connected / Autonomous Vehicle
-                            - Car Sharing
-                            - Software Defined Radio (SDR): USRP or HackRF
+                        <img data-src="img/07/canusb.png" width=400>
                     </script>
                     </section>
 
                     <section data-markdown>
                     <script type="text/template">
-                        ## Further Thinking (2/2)
-                        - Smartphone Market
-                            - Nokia was the number one and led its Symbian project to change normal phone to smart phone
-                            - Apple and Google were not the phone makers but, now they are the number one.
-                        - Car Market
-                            - Europe led its AUTOSAR project to make smart car
-                            - Who will be the winner in the future smart car market?
+                        ### OBD-II connector (AU $7.12)
+
+                        <img data-src="img/07/OBDII_connector.png" width=400>
 
                     </script>
                     </section>
 
                 </section>
+
+				<section>
+                    <section data-markdown>
+                    <script type="text/template">
+                        ## Next Goals
+                        - Petri net modelling of CAN bus
+                        - Security Requirements Analysis
+                        - Petri net modelling of existing secure CAN bus like MaCAN
+                        - Secure Protocol Design and Verification for Intra-Vehicular Network
+                        - : CAN bus test-bed configuration
+                    </script>
+                    </section>
+                </section>
+
                 <section data-markdown>
                 <script type="text/template">
                     ## Next Meeting
-                    - Two weeks later : 15:00 Wednesday 2nd September
+                    - Bago, Marko, Nedjeljko Perić, and Siniša Marijan. **"Modeling Bus Communication Protocols Using Timed Colored Petri Nets—The Controller Area Network Example."** *Ninth Workshop and Tutorial on Practical Use of Coloured Petri Nets and the CPN Tools.* Hrvatska znanstvena bibliografija i MZOS-Svibor, 2008.
                 </script>
                 </section>
 
