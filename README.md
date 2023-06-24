@@ -1,6 +1,7 @@
-http://ymkim92.github.io/presentation/kim-background.html
+http://ymkim92.github.io/presentation/
 
-To deploy reveal.js to github pages: http://www.tikalk.com/devops/deploy-revealjs-slideshow-github-pages/
+To update the presentations on github pages, 
+`gh-pages` branch is the place.
 
 
 
